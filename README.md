@@ -11,7 +11,7 @@ Links: **[itch.io page](https://ninja-muffin24.itch.io/funkin) ⋅ [Newgrounds](
 ## J4Y Engine
 **J4Y Engine** is a mod for Friday Night Funkin' with convenient features!.
 
-Links: **[GameBanana](https://gamebanana.com/gamefiles/16761)**
+Links: **[GameBanana](https://gamebanana.com/tools/15234)**
 
 **REMINDER**: This is a **mod**. This is not the vanilla game and should be treated as a **modification**. This is not and probably will never be official, so don't get confused.
 
