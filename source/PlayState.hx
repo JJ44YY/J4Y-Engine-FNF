@@ -148,9 +148,24 @@ class PlayState extends MusicBeatState
 
 		Conductor.changeBPM(SONG.bpm);
 
-		switch (SONG.song.toLowerCase())
+		if (SONG.stage == null)
 		{
-			case 'spookeez' | 'south' | 'monster':
+			switch (SONG.song.toLowerCase())
+			{
+				case 'spookeez' | 'south' | 'monster':
+					SONG.stage = 'spooky';
+				case 'pico' | 'philly' | 'blammed':
+					SONG.stage = 'philly';
+				case 'high' | 'satin-panties' | 'milf':
+					SONG.stage = 'limo';
+				default:
+					SONG.stage = 'stage';
+			}
+		}
+
+		switch (SONG.stage)
+		{
+			case 'spooky':
 			{
 				curStage = "spooky";
 
@@ -168,7 +183,7 @@ class PlayState extends MusicBeatState
 
 				isHalloween = true;
 			}
-			case 'pico' | 'philly' | 'blammed':
+			case 'philly':
 			{
 				curStage = 'philly';
 
@@ -207,7 +222,7 @@ class PlayState extends MusicBeatState
 				var street:FlxSprite = new FlxSprite(-40, streetBehind.y).loadGraphic(AssetPaths.street__png);
 				add(street);
 			}
-			case 'high' | 'satin-panties' | 'milf':
+			case 'limo':
 			{
 				curStage = 'limo';
 				defaultCamZoom = 0.90;
@@ -1060,11 +1075,11 @@ class PlayState extends MusicBeatState
 
 		FlxG.watch.addQuick("beatShit", totalBeats);
 
-		if (controls.RESET)
+		/*if (controls.RESET)
 		{
 			health = 0;
 			trace("RESET = True");
-		}
+		}*/
 
 		if (controls.CHEAT)
 		{
@@ -1215,7 +1230,6 @@ class PlayState extends MusicBeatState
 
 				if (SONG.validScore)
 				{
-					NGio.unlockMedal(60961);
 					Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 				}
 
