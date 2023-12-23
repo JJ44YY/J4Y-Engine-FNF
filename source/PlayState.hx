@@ -1075,11 +1075,11 @@ class PlayState extends MusicBeatState
 
 		FlxG.watch.addQuick("beatShit", totalBeats);
 
-		/*if (controls.RESET)
+		if (controls.RESET)
 		{
 			health = 0;
 			trace("RESET = True");
-		}*/
+		}
 
 		if (controls.CHEAT)
 		{
@@ -1230,6 +1230,7 @@ class PlayState extends MusicBeatState
 
 				if (SONG.validScore)
 				{
+					NGio.unlockMedal(60961);
 					Highscore.saveWeekScore(storyWeek, campaignScore, storyDifficulty);
 				}
 
