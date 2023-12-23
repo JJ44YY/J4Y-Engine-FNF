@@ -121,6 +121,7 @@ class ChartingState extends MusicBeatState
 				needsVoices: false,
 				player1: 'bf',
 				player2: 'dad',
+				stage: 'stage',
 				sectionLengths: [],
 				speed: 1,
 				validScore: false
@@ -223,6 +224,7 @@ class ChartingState extends MusicBeatState
 		stepperBPM.name = 'song_bpm';
 
 		var characters:Array<String> = CoolUtil.coolTextFile("assets/data/characterList.txt");
+		var stages:Array<String> = CoolUtil.coolTextFile("assets/data/stageList.txt");
 
 		var player1DropDown = new FlxUIDropDownMenu(10, 100, FlxUIDropDownMenu.makeStrIdLabelArray(characters, true), function(character:String)
 		{
@@ -234,6 +236,12 @@ class ChartingState extends MusicBeatState
 		var player2DropDown = new FlxUIDropDownMenu(140, 100, FlxUIDropDownMenu.makeStrIdLabelArray(characters, true), function(character:String)
 		{
 			_song.player2 = characters[Std.parseInt(character)];
+			updateHeads();
+		});
+
+		var stageDropDown = new FlxUIDropDownMenu(10, 120, FlxUIDropDownMenu.makeStrIdLabelArray(stages, true), function(stage:String)
+		{
+			_song.stage = stages[Std.parseInt(stage)];
 			updateHeads();
 		});
 
@@ -253,6 +261,7 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(stepperSpeed);
 		tab_group_song.add(player1DropDown);
 		tab_group_song.add(player2DropDown);
+		tab_group_song.add(stageDropDown);
 
 		UI_box.addGroup(tab_group_song);
 		UI_box.scrollFactor.set();
